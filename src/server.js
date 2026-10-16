@@ -1,22 +1,8 @@
-const express = require("express");
+require("dotenv").config();
 
-const app = express();
+const app = require("./app");
 
-app.use(express.json());
-
-app.get("/", (req, res) => {
-  res.json({
-    message: "AI Code Reviewer API is running"
-  });
-});
-
-app.get("/health", (req, res) => {
-  res.json({
-    status: "ok"
-  });
-});
-
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
